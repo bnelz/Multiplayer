@@ -431,11 +431,11 @@ namespace Multiplayer.Client
             SyncMethod.Register(typeof(FoodRestrictionDatabase), nameof(FoodRestrictionDatabase.MakeNewFoodRestriction));
             SyncMethod.Register(typeof(FoodRestrictionDatabase), nameof(FoodRestrictionDatabase.TryDelete)).CancelIfAnyArgNull();
 
-            SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.TryAssignPawn)).CancelIfAnyArgNull();
-            SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.TryUnassignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.CompAssignableToPawn.TryAssignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.CompAssignableToPawn.TryUnassignPawn)).CancelIfAnyArgNull();
             SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.Medical));
-            SyncMethod.Register(typeof(Building_Grave), nameof(Building_Grave.TryAssignPawn)).CancelIfAnyArgNull();
-            SyncMethod.Register(typeof(Building_Grave), nameof(Building_Grave.TryUnassignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(Building_Grave), nameof(Building_Grave.CompAssignableToPawn.TryAssignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(Building_Grave), nameof(Building_Grave.CompAssignableToPawn.TryUnassignPawn)).CancelIfAnyArgNull();
             SyncMethod.Register(typeof(PawnColumnWorker_Designator), nameof(PawnColumnWorker_Designator.SetValue)).CancelIfAnyArgNull(); // Virtual but currently not overriden by any subclasses
             SyncMethod.Register(typeof(PawnColumnWorker_FollowDrafted), nameof(PawnColumnWorker_FollowDrafted.SetValue)).CancelIfAnyArgNull();
             SyncMethod.Register(typeof(PawnColumnWorker_FollowFieldwork), nameof(PawnColumnWorker_FollowFieldwork.SetValue)).CancelIfAnyArgNull();
@@ -815,7 +815,7 @@ namespace Multiplayer.Client
             SyncDelegate.Register(typeof(CompRefuelable), "<CompGetGizmosExtra>c__Iterator0", "<>m__0", new[] { "$this" }).SetDebugOnly(); // Set fuel to 0
             SyncDelegate.Register(typeof(CompRefuelable), "<CompGetGizmosExtra>c__Iterator0", "<>m__2", new[] { "$this" }).SetDebugOnly(); // Set fuel to max
 
-            SyncDelegate.Register(typeof(ITab_TransporterContents), "<DoItemsLists>c__AnonStorey1", "<>m__0").SetContext(SyncContext.MapSelected); // Discard loaded thing
+            SyncDelegate.Register(typeof(ITab_ContentsTransporter), "<DoItemsLists>c__AnonStorey1", "<>m__0").SetContext(SyncContext.MapSelected); // Discard loaded thing
         }
 
         [MpPrefix(typeof(FormCaravanComp), "<GetGizmos>c__Iterator0+<GetGizmos>c__AnonStorey1", "<>m__0")]

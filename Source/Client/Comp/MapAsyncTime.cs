@@ -812,7 +812,7 @@ namespace Multiplayer.Client
                 comp.factionMapData[factionId] = factionMapData;
 
                 factionMapData.areaManager.AddStartingAreas();
-                map.pawnDestinationReservationManager.RegisterFaction(faction);
+                map.pawnDestinationReservationManager.GetPawnDestinationSetFor(faction);
 
                 MpLog.Log($"New map faction data for {faction.GetUniqueLoadID()}");
             }

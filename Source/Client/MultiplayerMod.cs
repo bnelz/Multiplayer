@@ -191,16 +191,18 @@ namespace Multiplayer.Client
             Log.Message($"Current API version: {curVersion}");
 
             foreach (var mod in LoadedModManager.RunningMods) {
-                if (!mod.LoadedAnyAssembly)
+                // Unclear what the original intention was here, I think we are trying to figure out whether the mod has actually loaded any dependencies
+                // In the latest version, mod pack assembly iterable is checked in conjuntion with all other resources...
+                if (!mod.AnyContentLoaded())
                     continue;
 
                 if (mod.Name == "Multiplayer")
                     continue;
 
                 Assembly assembly = mod.assemblies.loadedAssemblies.FirstOrDefault(a => a.GetName().Name == MpVersion.apiAssemblyName);
-
                 if (assembly != null) {
-                    var version = new Version(FileVersionInfo.GetVersionInfo(System.IO.Path.Combine(mod.AssembliesFolder, $"{MpVersion.apiAssemblyName}.dll")).FileVersion);
+                    string assemblyDir = System.IO.Path.Combine(mod.RootDir, "Assemblies");
+                    var version = new Version(FileVersionInfo.GetVersionInfo(System.IO.Path.Combine(assemblyDir, $"{MpVersion.apiAssemblyName}.dll")).FileVersion);
 
                     Log.Message($"Mod {mod.Name} has API client ({version})");
 

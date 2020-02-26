@@ -136,7 +136,7 @@ namespace Multiplayer.Client
                 entry = entry.Down(30);
             }
 
-            if (Event.current.type == EventType.layout && height != entry.yMax)
+            if (Event.current.type == EventType.Layout && height != entry.yMax)
             {
                 height = entry.yMax;
                 SetInitialSizeAndPosition();
