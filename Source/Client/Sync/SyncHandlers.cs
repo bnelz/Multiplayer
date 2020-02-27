@@ -247,9 +247,7 @@ namespace Multiplayer.Client
             }
         }
 
-        [MpPrefix(typeof(BillRepeatModeUtility), "<MakeConfigFloatMenu>c__AnonStorey0", "<>m__0")]
-        [MpPrefix(typeof(BillRepeatModeUtility), "<MakeConfigFloatMenu>c__AnonStorey0", "<>m__1")]
-        [MpPrefix(typeof(BillRepeatModeUtility), "<MakeConfigFloatMenu>c__AnonStorey0", "<>m__2")]
+        [MpPrefix(typeof(BillRepeatModeUtility), "<>c__DisplayClass0_0","<MakeConfigFloatMenu>b__0")]
         static void BillRepeatMode(object __instance)
         {
             SyncBillProduction.Watch(__instance.GetPropertyOrField("bill"));

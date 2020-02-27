@@ -39,7 +39,7 @@
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
-    <PackageReference Include="Lib.Harmony" Version="2.0.0.2" />
+    <PackageReference Include="Lib.Harmony" Version="2.0.0.7" />
   </ItemGroup>
 
   <Target Name="ChangeAliasesOfNugetRefs" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
