@@ -434,11 +434,11 @@ namespace Multiplayer.Client
             SyncMethod.Register(typeof(FoodRestrictionDatabase), nameof(FoodRestrictionDatabase.MakeNewFoodRestriction));
             SyncMethod.Register(typeof(FoodRestrictionDatabase), nameof(FoodRestrictionDatabase.TryDelete)).CancelIfAnyArgNull();
 
-            SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.CompAssignableToPawn.TryAssignPawn)).CancelIfAnyArgNull();
-            SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.CompAssignableToPawn.TryUnassignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(CompAssignableToPawn_Bed), nameof(CompAssignableToPawn_Bed.TryAssignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(CompAssignableToPawn_Bed), nameof(CompAssignableToPawn_Bed.TryUnassignPawn)).CancelIfAnyArgNull();
             SyncMethod.Register(typeof(Building_Bed), nameof(Building_Bed.Medical));
-            SyncMethod.Register(typeof(Building_Grave), nameof(Building_Grave.CompAssignableToPawn.TryAssignPawn)).CancelIfAnyArgNull();
-            SyncMethod.Register(typeof(Building_Grave), nameof(Building_Grave.CompAssignableToPawn.TryUnassignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(CompAssignableToPawn_Grave), nameof(CompAssignableToPawn_Grave.TryAssignPawn)).CancelIfAnyArgNull();
+            SyncMethod.Register(typeof(CompAssignableToPawn_Grave), nameof(CompAssignableToPawn_Grave.TryUnassignPawn)).CancelIfAnyArgNull();
             SyncMethod.Register(typeof(PawnColumnWorker_Designator), nameof(PawnColumnWorker_Designator.SetValue)).CancelIfAnyArgNull(); // Virtual but currently not overriden by any subclasses
             SyncMethod.Register(typeof(PawnColumnWorker_FollowDrafted), nameof(PawnColumnWorker_FollowDrafted.SetValue)).CancelIfAnyArgNull();
             SyncMethod.Register(typeof(PawnColumnWorker_FollowFieldwork), nameof(PawnColumnWorker_FollowFieldwork.SetValue)).CancelIfAnyArgNull();
