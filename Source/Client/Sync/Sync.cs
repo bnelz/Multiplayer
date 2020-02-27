@@ -878,7 +878,10 @@ namespace Multiplayer.Client
         // todo support methods with arguments (currently there has been no need for it)
         public static SyncDelegate RegisterSyncDelegate(Type inType, string nestedType, string methodName, string[] fields, Type[] args = null)
         {
-            string typeName = $"{inType}+{nestedType}";
+            string typeName = inType.ToString();
+            if (nestedType.Length != 0) {
+                typeName += $"+{nestedType}";
+            }
             Type type = MpReflection.GetTypeByName(typeName);
             if (type == null)
                 throw new Exception($"Couldn't find type {typeName}");
