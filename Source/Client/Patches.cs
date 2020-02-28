@@ -1023,7 +1023,7 @@ namespace Multiplayer.Client
             int i = 0;
             while (i < list.Count)
             {
-                int index = Mathf.FloorToInt(Mathf.Abs(Rand.Range(0, iters--) % (i + 1)));
+                int index = Mathf.Abs(MurmurHash.GetInt(Rand.seed, iters--) % (i + 1));
                 T value = list[index];
                 list[index] = list[i];
                 list[i] = value;
