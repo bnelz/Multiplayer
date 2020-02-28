@@ -247,7 +247,7 @@ namespace Multiplayer.Client
         }
     }
 
-    [MpPatch(typeof(JobDriver_TradeWithPawn), "<MakeNewToils>c__Iterator0+<MakeNewToils>c__AnonStorey1", "<>m__1")]
+    [MpPatch(typeof(JobDriver_TradeWithPawn), "<>c__DisplayClass3_0", "<MakeNewToils>b__1")]
     static class ShowTradingWindow
     {
         public static int tradeJobStartedByMe = -1;
