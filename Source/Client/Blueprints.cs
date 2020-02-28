@@ -128,7 +128,7 @@ namespace Multiplayer.Client
                 if (inst.opcode == OpCodes.Call && inst.operand == SpawningWipes)
                 {
                     yield return new CodeInstruction(OpCodes.Ldarg_2);
-                    yield return new CodeInstruction(OpCodes.Ldloc_2);
+                    yield return new CodeInstruction(OpCodes.Ldloc_3);
                     yield return new CodeInstruction(OpCodes.Call, CanPlaceBlueprintAtPatch.ShouldIgnore2Method);
                     yield return new CodeInstruction(OpCodes.Not);
                     yield return new CodeInstruction(OpCodes.And);
