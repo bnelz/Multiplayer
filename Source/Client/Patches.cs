@@ -927,7 +927,7 @@ namespace Multiplayer.Client
         static void Postfix() => starting = false;
     }
 
-    [HarmonyPatch(typeof(LongEventHandler), nameof(LongEventHandler.QueueLongEvent), new[] {typeof(Action), typeof(string), typeof(bool), typeof(Action<Exception>)})]
+    [HarmonyPatch(typeof(LongEventHandler), nameof(LongEventHandler.QueueLongEvent), new[] {typeof(Action), typeof(string), typeof(bool), typeof(Action<Exception>), typeof(bool)})]
     static class CancelRootPlayStartLongEvents
     {
         public static bool cancel;
@@ -1226,7 +1226,7 @@ namespace Multiplayer.Client
         }
     }
 
-    [HarmonyPatch(typeof(LongEventHandler), nameof(LongEventHandler.QueueLongEvent), new[] {typeof(Action), typeof(string), typeof(bool), typeof(Action<Exception>)})]
+    [HarmonyPatch(typeof(LongEventHandler), nameof(LongEventHandler.QueueLongEvent), new[] {typeof(Action), typeof(string), typeof(bool), typeof(Action<Exception>), typeof(bool)})]
     static class MarkLongEvents
     {
         private static MethodInfo MarkerMethod = AccessTools.Method(typeof(MarkLongEvents), nameof(Marker));
@@ -1281,7 +1281,7 @@ namespace Multiplayer.Client
         }
     }
 
-    [HarmonyPatch(typeof(LongEventHandler), nameof(LongEventHandler.QueueLongEvent), new[] {typeof(Action), typeof(string), typeof(bool), typeof(Action<Exception>)})]
+    [HarmonyPatch(typeof(LongEventHandler), nameof(LongEventHandler.QueueLongEvent), new[] {typeof(Action), typeof(string), typeof(bool), typeof(Action<Exception>), typeof(bool)})]
     static class LongEventAlwaysSync
     {
         static void Prefix(ref bool doAsynchronously)
