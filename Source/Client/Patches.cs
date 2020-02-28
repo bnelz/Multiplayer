@@ -725,9 +725,20 @@ namespace Multiplayer.Client
         }
     }
 
-    [HarmonyPatch(typeof(Pawn_ApparelTracker), "<SortWornApparelIntoDrawOrder>m__0")]
+    [HarmonyPatch()]
     static class FixApparelSort
     {
+        static MethodBase TargetMethod()
+        {
+            // Get all non public types, including compiler types
+            List<Type> nestedPrivateTypes = new List<Type>(typeof(Pawn_ApparelTracker).GetNestedTypes(BindingFlags.NonPublic));
+
+            // There are two of these in 1.1, <GetGizmos> and <>c. Pluck the one we want for sort inner
+            Type cType = nestedPrivateTypes.Find(t => t.Name.Equals("<>c"));
+
+            return AccessTools.Method(cType, "<SortWornApparelIntoDrawOrder>b__50_0");
+        }
+
         static void Postfix(Apparel a, Apparel b, ref int __result)
         {
             if (__result == 0)
