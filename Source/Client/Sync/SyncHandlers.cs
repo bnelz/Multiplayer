@@ -898,7 +898,7 @@ namespace Multiplayer.Client
         [MpPrefix(typeof(JobDriver_Research), "<>c__DisplayClass6_0", "<MakeNewToils>b__0")]
         static void ResearchToil_Prefix() => researchToil = true;
 
-        [MpPrefix(typeof(JobDriver_Research), "<>c__DisplayClass6_0", "<MakeNewToils>b__0")]
+        [MpPostfix(typeof(JobDriver_Research), "<>c__DisplayClass6_0", "<MakeNewToils>b__0")]
         static void ResearchToil_Postfix() => researchToil = false;
 
         [MpPrefix(typeof(ITab_Storage), "FillTab")]
