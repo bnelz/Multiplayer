@@ -231,7 +231,7 @@ namespace Multiplayer.Client
     static class LoadableXmlAssetCtorPatch
     {
         private static Mutex writeLock = new Mutex();
-        public static List<Pair<LoadableXmlAsset, int>> xmlAssetHashes = new List<Pair<LoadableXmlAsset, int>>(0);
+        public static List<Pair<LoadableXmlAsset, int>> xmlAssetHashes = new List<Pair<LoadableXmlAsset, int>>();
 
         static void Prefix(LoadableXmlAsset __instance, string contents)
         {
