@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -229,11 +230,14 @@ namespace Multiplayer.Client
 
     static class LoadableXmlAssetCtorPatch
     {
-        public static List<Pair<LoadableXmlAsset, int>> xmlAssetHashes = new List<Pair<LoadableXmlAsset, int>>();
+        private static Mutex writeLock = new Mutex();
+        public static List<Pair<LoadableXmlAsset, int>> xmlAssetHashes = new List<Pair<LoadableXmlAsset, int>>(0);
 
         static void Prefix(LoadableXmlAsset __instance, string contents)
         {
+            writeLock.WaitOne();
             xmlAssetHashes.Add(new Pair<LoadableXmlAsset, int>(__instance, GenText.StableStringHash(contents)));
+            writeLock.ReleaseMutex();
         }
     }
 
