@@ -13,8 +13,8 @@
       <li>Civil</li>
     </backstoryCategories>
 	
-    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
-    <homeIconPath>World/WorldObjects/DefaultSettlement</homeIconPath>
+    <factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
     <colorSpectrum>
       <li>(0.607, 0.847, 0)</li>
     </colorSpectrum>
@@ -49,8 +49,8 @@
       <li>Civil</li>
     </backstoryCategories>
 	
-    <expandingIconTexture>World/WorldObjects/Expanding/Town</expandingIconTexture>
-    <homeIconPath>World/WorldObjects/DefaultSettlement</homeIconPath>
+    <factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
     <colorSpectrum>
       <li>(0.607, 0.847, 0)</li>
     </colorSpectrum>
