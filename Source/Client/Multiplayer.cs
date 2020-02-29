@@ -251,6 +251,7 @@ namespace Multiplayer.Client
 
             // General designation handling
             {
+                var designatorFinalizer = AccessTools.Method(typeof(DesignatorPatches), "DesignateFinalizer");
                 var designatorMethods = new[] { "DesignateSingleCell", "DesignateMultiCell", "DesignateThing" };
 
                 foreach (Type t in typeof(Designator).AllSubtypesAndSelf())
@@ -261,7 +262,7 @@ namespace Multiplayer.Client
                         if (method == null) continue;
 
                         MethodInfo prefix = AccessTools.Method(typeof(DesignatorPatches), m);
-                        harmony.Patch(method, new HarmonyMethod(prefix), null, null);
+                        harmony.Patch(method, new HarmonyMethod(prefix), null, null, new HarmonyMethod(designatorFinalizer));
                     }
                 }
             }
